@@ -1,7 +1,7 @@
 # Unique name for this workflow
 name: Deploy to Production
 
-# Definition when the workflow should run
+# Definition of when the workflow should run
 on:
     workflow_dispatch:
             
@@ -14,6 +14,7 @@ jobs:
         # Checkout the source code
             - name: 'Checkout source code'
               uses: actions/checkout@v4
+        
         # Install Salesforce CLI
             - name: 'Install Salesforce CLI'
               run: |
@@ -23,7 +24,7 @@ jobs:
                   echo "$HOME/sfdx/bin" >> $GITHUB_PATH
                   ~/sfdx/bin/sfdx version
                   
-        # Store secret for the org
+        # Store secret for the org in a txt file to be used for authentication
             - name: 'Populate auth file with SFDX_PRODUCTION_URL secret'
               shell: bash
               run: |
@@ -37,7 +38,7 @@ jobs:
             - name: 'Authenticate Acc'
               run: sfdx auth:sfdxurl:store -f ./SFDX_PRODUCTION_URL.txt -s -a production
               
-            # Deploy source to Acc org
+            # Deploy source to the production org
             - name: 'Push source to the production org'
               run: |
                   cd sample-sfdx-repo-workflow
