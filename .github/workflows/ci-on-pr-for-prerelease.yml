@@ -37,12 +37,12 @@ jobs:
 
             # Prettier formatting
             - name: 'Code formatting verification with Prettier'
-              run: npm run prettier:verify
+              run: cd sample-sfdx-repo-workflow && npm run prettier:verify
 
             # Lint LWC / Aura
             - name: 'Lint Lightning Web Components / Aura Components'
-              run: npm run lint
+              run: cd sample-sfdx-repo-workflow && npm run lint
 
             # LWC unit tests
             - name: 'Unit test Lightning Web Components'
-              run: npm run test:unit:coverage
+              run: cd sample-sfdx-repo-workflow && npm run test:unit:coverage
