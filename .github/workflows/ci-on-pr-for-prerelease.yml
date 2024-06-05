@@ -28,7 +28,7 @@ jobs:
               uses: actions/checkout@v4
               with:
                   sparse-checkout: |
-                      sample-sfdx-repo-workflow
+                      sample-sfdx-repo-workflow/*
 
             # Install Volta to enforce proper node and package manager versions
             - name: 'Install Volta'
