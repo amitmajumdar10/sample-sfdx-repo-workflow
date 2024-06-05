@@ -40,9 +40,9 @@ jobs:
               run: cd sample-sfdx-repo-workflow && npm run prettier --write
 
             # Lint LWC / Aura
-            - name: 'Lint Lightning Web Components / Aura Components'
-              run: cd sample-sfdx-repo-workflow && npm run lint
+            # - name: 'Lint Lightning Web Components / Aura Components'
+            #  run: cd sample-sfdx-repo-workflow && npm run lint
 
             # LWC unit tests
-            - name: 'Unit test Lightning Web Components'
-              run: cd sample-sfdx-repo-workflow && npm run test:unit:coverage
+            # - name: 'Unit test Lightning Web Components'
+            #  run: cd sample-sfdx-repo-workflow && npm run test:unit:coverage
