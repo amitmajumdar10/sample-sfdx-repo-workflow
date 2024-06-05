@@ -26,10 +26,6 @@ jobs:
             # Checkout the source code
             - name: 'Checkout source code'
               uses: actions/checkout@v4
-              
-            # Nativate to the project folder
-            - name: 'Go to the project folder sample-sfdx-repo-workflow'
-              # run: cd sample-sfdx-repo-workflow
 
             # Install Volta to enforce proper node and package manager versions
             - name: 'Install Volta'
