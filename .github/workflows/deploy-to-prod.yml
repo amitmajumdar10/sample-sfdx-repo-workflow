@@ -39,4 +39,6 @@ jobs:
               
             # Deploy source to Acc org
             - name: 'Push source to the production org'
-              run: sfdx force:source:deploy -p sample-sfdx-repo-workflow/force-app/main/default
+              run: |
+                  cd sample-sfdx-repo-workflow
+                  sfdx force:source:deploy -p force-app/main/default
