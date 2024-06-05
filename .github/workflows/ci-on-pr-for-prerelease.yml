@@ -26,9 +26,6 @@ jobs:
             # Checkout the source code
             - name: 'Checkout source code'
               uses: actions/checkout@v4
-              with:
-                  sparse-checkout: |
-                      sample-sfdx-repo-workflow/*
 
             # Install Volta to enforce proper node and package manager versions
             - name: 'Install Volta'
@@ -36,7 +33,7 @@ jobs:
 
             # Install npm dependencies for Prettier
             - name: 'Install npm dependencies'
-              run: npm i
+              run: ls && cd sample-sfdx-repo-workflow && ls && npm i
 
             # Prettier formatting
             - name: 'Code formatting verification with Prettier'
