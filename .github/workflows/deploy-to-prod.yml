@@ -39,4 +39,4 @@ jobs:
               
             # Deploy source to Acc org
             - name: 'Push source to the production org'
-              run: sfdx force:source:deploy -u storm-2fa92f21f5410e -p sample-sfdx-repo-workflow/force-app/main/default
+              run: sfdx force:source:deploy -p sample-sfdx-repo-workflow/force-app/main/default
