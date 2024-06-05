@@ -24,18 +24,18 @@ jobs:
                   ~/sfdx/bin/sfdx version
                   
         # Store secret for the org
-            - name: 'Populate auth file with ACC_SFDX_URL secret'
+            - name: 'Populate auth file with SFDX_PRODUCTION_URL secret'
               shell: bash
               run: |
-                  echo ${{ secrets.ACC_SFDX_URL}} > ./ACC_SFDX_URL.txt
-                  secretFileSize=$(wc -c "./ACC_SFDX_URL.txt" | awk '{print $1}')
+                  echo ${{ secrets.SFDX_PRODUCTION_URL}} > ./SFDX_PRODUCTION_URL.txt
+                  secretFileSize=$(wc -c "./SFDX_PRODUCTION_URL.txt" | awk '{print $1}')
                   if [ $secretFileSize == 1 ]; then
-                      echo "Missing ACC_SFDX_URL secret. Is this workflow running on a fork?";
+                      echo "Missing SFDX_PRODUCTION_URL secret. Is this workflow running on a fork?";
                       exit 1;
                   fi
             # Authenticate account
             - name: 'Authenticate Acc'
-              run: sfdx auth:sfdxurl:store -f ./ACC_SFDX_URL.txt -a meeraacc -d
+              run: sfdx auth:sfdxurl:store -f ./SFDX_PRODUCTION_URL.txt -s -a production
               
             # Deploy source to Acc org
             - name: 'Push source to the production org'
