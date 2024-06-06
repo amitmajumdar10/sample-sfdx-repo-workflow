@@ -22,7 +22,7 @@ jobs:
               with:
                   version: '6.55.0'
                   sourcePath: 'sample-sfdx-repo-workflow/force-app'
-                  rulesets: 'ruleset.xml'
+                  rulesets: 'sample-sfdx-repo-workflow/ruleset.xml'
 
         # Check for PMD violations
             - name: 'Check for PMD violations'
