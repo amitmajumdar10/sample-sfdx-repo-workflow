@@ -21,7 +21,7 @@ jobs:
               id: pmd
               with:
                   version: '6.55.0'
-                  sourcePath: 'force-app'
+                  sourcePath: 'sample-sfdx-repo-workflow/force-app'
                   rulesets: 'ruleset.xml'
 
         # Check for PMD violations
