@@ -18,6 +18,20 @@ jobs:
       - name: 'Checkout source code'
         uses: actions/checkout@v2
 
+    # Run PMD scan
+      - name: 'Run PMD scan'
+        uses: pmd/pmd-github-action@v2.0.0
+        id: pmd
+        with:
+            version: '6.55.0'
+            sourcePath: 'sample-sfdx-repo-workflow/force-app'
+            rulesets: 'sample-sfdx-repo-workflow/ruleset.xml'
+
+    # Check for PMD violations
+      - name: 'Check for PMD violations'
+        if: steps.pmd.outputs.violations != 0
+        run: exit 1
+
     # Install Salesforce CLI
       - name: 'Install Salesforce CLI'
         run: cd sample-sfdx-repo-workflow && npm install @salesforce/cli -global
